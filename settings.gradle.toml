@@ -1,0 +1,63 @@
+plugins = [
+    { id = "nowinandroid.android.application" },
+    { id = "nowinandroid.android.application.compose" },
+    { id = "nowinandroid.android.application.flavors" },
+    { id = "nowinandroid.android.application.jacoco" },
+    { id = "nowinandroid.android.hilt" },
+    { id = "jacoco" },
+    { id = "nowinandroid.android.application.firebase" },
+    { id = "com.google.android.gms.oss-licenses-plugin" },
+]
+
+rootProject.name = "nowinandroid"
+
+pluginManagement.includeBuild = [ "build-logic" ]
+
+dependencyResolutionManagement.repositoriesMode = "FAIL_ON_PROJECT_REPOS"
+
+include = [
+    ":app",
+    ":app-nia-catalog",
+    ":benchmarks",
+    ":core:common",
+    ":core:data",
+    ":core:data-test",
+    ":core:database",
+    ":core:datastore",
+    ":core:datastore-test",
+    ":core:designsystem",
+    ":core:domain",
+    ":core:model",
+    ":core:network",
+    ":core:ui",
+    ":core:testing",
+    ":core:analytics",
+    ":core:notifications",
+
+    ":feature:foryou",
+    ":feature:interests",
+    ":feature:bookmarks",
+    ":feature:topic",
+    ":feature:search",
+    ":feature:settings",
+    ":lint",
+    ":sync:work",
+    ":sync:sync-test",
+    ":ui-test-hilt-manifest",
+    ]
+
+[[pluginManagement.repositories]]
+name = "gradlePluginPortal"
+
+[[pluginManagement.repositories]]
+name = "google"
+
+[[pluginManagement.repositories]]
+name = "mavenCentral"
+
+
+[[dependencyResolutionManagement.repositories]]
+name = "google"
+
+[[dependencyResolutionManagement.repositories]]
+name = "mavenCentral"

@@ -13,20 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-plugins {
-    id("nowinandroid.android.library")
-    id("nowinandroid.android.library.compose")
-    id("nowinandroid.android.hilt")
-}
-
-android {
-    namespace = "com.google.samples.apps.nowinandroid.core.analytics"
-}
 
 dependencies {
     implementation(platform(libs.firebase.bom))
-    implementation(libs.androidx.compose.runtime)
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.firebase.analytics)
-    implementation(libs.kotlinx.coroutines.android)
+    //implementation(platform("com.google.firebase:firebase-bom:31.2.0"))
 }

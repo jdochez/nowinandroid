@@ -1,0 +1,20 @@
+plugins = [
+    { id = "nowinandroid.android.library" },
+    { id = "nowinandroid.android.library.jacoco" },
+    { id = "nowinandroid.android.hilt" },
+    { id = "nowinandroid.android.room" },
+]
+
+android.namespace = "com.google.samples.apps.nowinandroid.core.database"
+
+android.defaultConfig.testInstrumentationRunner = "com.google.samples.apps.nowinandroid.core.testing.NiaTestRunner"
+
+dependencies.implementation = [
+    { project = ":core:model" },
+    { alias = "libs.kotlinx.coroutines.android" },
+    { alias = "libs.kotlinx.datetime" },
+]
+
+dependencies.testImplementation = [
+    { project = ":core:testing" },
+]

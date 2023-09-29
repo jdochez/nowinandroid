@@ -1,0 +1,42 @@
+plugins = [
+    { id = "nowinandroid.android.library" },
+    { id = "nowinandroid.android.library.compose" },
+    { id = "nowinandroid.android.library.jacoco" },
+]
+
+android.namespace = "com.google.samples.apps.nowinandroid.core.ui"
+android.defaultConfig.testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+dependencies.api = [
+    { alias = "libs.androidx.compose.foundation" },
+    { alias = "libs.androidx.compose.foundation.layout" },
+    { alias = "libs.androidx.compose.material.iconsExtended" },
+    { alias = "libs.androidx.compose.material3" },
+    { alias = "libs.androidx.compose.runtime" },
+    { alias = "libs.androidx.compose.runtime.livedata" },
+    { alias = "libs.androidx.compose.ui.tooling.preview" },
+    { alias = "libs.androidx.compose.ui.util" },
+    { alias = "libs.androidx.metrics" },
+    { alias = "libs.androidx.tracing.ktx" },
+]
+
+dependencies.debugApi = [
+    { alias = "libs.androidx.compose.ui.tooling" },
+]
+
+dependencies.implementation = [
+    { project = ":core:designsystem" },
+    { project = ":core:domain" },
+    { project = ":core:model" },
+    { project = ":core:analytics" },
+    { alias = "libs.androidx.activity.compose" },
+    { alias = "libs.androidx.browser" },
+    { alias = "libs.androidx.core.ktx" },
+    { alias = "libs.coil.kt" },
+    { alias = "libs.coil.kt.compose" },
+    { alias = "libs.kotlinx.datetime" },
+]
+
+dependencies.androidTestImplementation = [
+    { project = ":core:testing" },
+]

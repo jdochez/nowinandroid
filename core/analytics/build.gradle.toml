@@ -1,0 +1,20 @@
+plugins = [
+    { id = "nowinandroid.android.library" },
+    { id = "nowinandroid.android.library.compose" },
+    { id = "nowinandroid.android.hilt" },
+]
+
+android.namespace = "com.google.samples.apps.nowinandroid.core.analytics"
+
+dependencies.implementation = [
+    { platform = "libs.firebase.bom" },
+    { alias = "libs.androidx.compose.runtime" },
+    { alias = "libs.androidx.core.ktx" },
+    { alias = "libs.firebase.analytics" },
+    { alias = "libs.kotlinx.coroutines.android" },
+]
+
+dependencies.androidTestImplementation = [
+    { extension = "kotlin", module = "test"},
+]
+

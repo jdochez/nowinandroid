@@ -1,0 +1,34 @@
+plugins = [
+    { id = "nowinandroid.android.library" },
+    { id = "nowinandroid.android.library.compose" },
+    { id = "nowinandroid.android.library.jacoco" },
+]
+
+android.namespace = "com.google.samples.apps.nowinandroid.core.designsystem"
+android.defaultConfig.testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+dependencies.lintPublish = [
+    { project = ":lint" },
+]
+
+dependencies.api = [
+    { alias = "libs.androidx.compose.foundation" },
+    { alias = "libs.androidx.compose.foundation.layout" },
+    { alias = "libs.androidx.compose.material.iconsExtended" },
+    { alias = "libs.androidx.compose.material3" },
+    { alias = "libs.androidx.compose.runtime" },
+    { alias = "libs.androidx.compose.ui.tooling.preview" },
+    { alias = "libs.androidx.compose.ui.util" },
+]
+
+dependencies.debugApi = [
+    { alias = "libs.androidx.compose.ui.tooling" },
+]
+dependencies.implementation = [
+    { alias = "libs.androidx.core.ktx" },
+    { alias = "libs.coil.kt.compose" },
+]
+
+dependencies.androidTestImplementation = [
+    { project = ":core:testing" },
+]

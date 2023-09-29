@@ -14,18 +14,7 @@
  * limitations under the License.
  */
 
-plugins {
-    id("nowinandroid.android.feature")
-    id("nowinandroid.android.library.compose")
-    id("nowinandroid.android.library.jacoco")
-}
-
-android {
-    namespace = "com.google.samples.apps.nowinandroid.feature.settings"
-}
-
 dependencies {
-    implementation(libs.androidx.appcompat)
     implementation(libs.google.oss.licenses) {
         exclude(group = "androidx.appcompat")
     }

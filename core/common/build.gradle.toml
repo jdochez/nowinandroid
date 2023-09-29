@@ -1,0 +1,17 @@
+plugins = [
+    { id = "nowinandroid.android.library" },
+    { id = "nowinandroid.android.library.jacoco" },
+    { id = "nowinandroid.android.hilt" },
+]
+
+android.namespace = "com.google.samples.apps.nowinandroid.core.common"
+
+dependencies.implementation = [
+    { alias = "libs.kotlinx.coroutines.android" },
+]
+
+dependencies.testImplementation = [
+    { project = ":core:testing" },
+]
+
+

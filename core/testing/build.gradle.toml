@@ -1,0 +1,38 @@
+plugins = [
+    { id = "nowinandroid.android.library" },
+    { id = "nowinandroid.android.library.compose" },
+    { id = "nowinandroid.android.hilt" },
+]
+
+android.namespace = "com.google.samples.apps.nowinandroid.core.testing"
+
+dependencies.api = [
+    { alias = "libs.accompanist.testharness" },
+    { alias = "libs.androidx.activity.compose" },
+    { alias = "libs.androidx.compose.ui.test" },
+    { alias = "libs.androidx.test.core" },
+    { alias = "libs.androidx.test.espresso.core" },
+    { alias = "libs.androidx.test.rules" },
+    { alias = "libs.androidx.test.runner" },
+    { alias = "libs.hilt.android.testing" },
+    { alias = "libs.junit4" },
+    { alias = "libs.kotlinx.coroutines.test" },
+    { alias = "libs.roborazzi" },
+    { alias = "libs.robolectric.shadows" },
+    { alias = "libs.turbine" },
+]
+
+dependencies.debugApi = [
+    { alias = "libs.androidx.compose.ui.testManifest" },
+]
+
+dependencies.implementation = [
+    { project = ":core:common" },
+    { project = ":core:data" },
+    { project = ":core:designsystem" },
+    { project = ":core:domain" },
+    { project = ":core:notifications" },
+    { project = ":core:model" },
+    { project = ":core:analytics" },
+    { alias = "libs.kotlinx.datetime" },
+]

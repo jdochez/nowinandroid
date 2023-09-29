@@ -1,0 +1,35 @@
+plugins = [
+    { id = "nowinandroid.android.library" },
+    { id = "nowinandroid.android.library.jacoco" },
+    { id = "nowinandroid.android.hilt" },
+]
+
+android.namespace = "com.google.samples.apps.nowinandroid.sync"
+android.defaultConfig.testInstrumentationRunner = "com.google.samples.apps.nowinandroid.core.testing.NiaTestRunner"
+
+dependencies.implementation = [
+    { project = ":core:analytics" },
+    { project = ":core:common" },
+    { project = ":core:data" },
+    { project = ":core:datastore" },
+    { project = ":core:model" },
+    { alias = "libs.androidx.lifecycle.livedata.ktx" },
+    { alias = "libs.androidx.tracing.ktx" },
+    { alias = "libs.androidx.work.ktx" },
+    { alias = "libs.firebase.cloud.messaging" },
+    { alias = "libs.hilt.ext.work" },
+    { alias = "libs.kotlinx.coroutines.android" },
+]
+
+dependencies.kapt = [
+    { alias = "libs.hilt.ext.compiler" },
+]
+
+dependencies.testImplementation = [
+    { project = ":core:testing" },
+]
+
+dependencies.androidTestImplementation = [
+    { project = ":core:testing" },
+    { alias = "libs.androidx.work.testing" },
+]

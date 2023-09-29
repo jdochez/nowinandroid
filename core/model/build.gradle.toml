@@ -1,0 +1,7 @@
+plugins = [
+    { id = "nowinandroid.jvm.library" },
+]
+
+dependencies.implementation = [
+    { alias = "libs.kotlinx.datetime" },
+]

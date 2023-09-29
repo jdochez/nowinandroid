@@ -13,49 +13,66 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+//
+//pluginManagement {
+//    includeBuild("build-logic")
+//    repositories {
+//        google()
+//        mavenCentral()
+//        gradlePluginPortal()
+//    }
+//}
+//
+//dependencyResolutionManagement {
+//    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+//    repositories {
+//        google()
+//        mavenCentral()
+//    }
+//}
+//rootProject.name = "nowinandroid"
+//include(":app")
+//include(":app-nia-catalog")
+//include(":benchmarks")
+//include(":core:common")
+//include(":core:data")
+//include(":core:data-test")
+//include(":core:database")
+//include(":core:datastore")
+//include(":core:datastore-test")
+//include(":core:designsystem")
+//include(":core:domain")
+//include(":core:model")
+//include(":core:network")
+//include(":core:ui")
+//include(":core:testing")
+//include(":core:analytics")
+//include(":core:notifications")
+//
+//include(":feature:foryou")
+//include(":feature:interests")
+//include(":feature:bookmarks")
+//include(":feature:topic")
+//include(":feature:search")
+//include(":feature:settings")
+//include(":lint")
+//include(":sync:work")
+//include(":sync:sync-test")
+//include(":ui-test-hilt-manifest")
 
 pluginManagement {
-    includeBuild("build-logic")
-    repositories {
-        google()
-        mavenCentral()
-        gradlePluginPortal()
+    repositories {        maven { url = uri("/Users/jedo/src/studio-main/out/repo")}
+        maven { url = uri ("/Users/jedo/src/studio-main/prebuilts/tools/common/m2/repository")}
+        maven { url = uri("/Users/jedo/src/gradle-declarative/out/repo")}
     }
 }
-
+plugins {
+    id("com.android.experiments.declarative.settings").version("0.0.1")
+}
 dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
+    RepositoriesMode.PREFER_SETTINGS
+    repositories {        maven { url = uri("/Users/jedo/src/studio-main/out/repo")}
+        maven { url = uri("/Users/jedo/src/studio-main/prebuilts/tools/common/m2/repository")}
+        maven { url = uri("/Users/jedo/src/gradle-declarative/out/repo")}
     }
 }
-rootProject.name = "nowinandroid"
-include(":app")
-include(":app-nia-catalog")
-include(":benchmarks")
-include(":core:common")
-include(":core:data")
-include(":core:data-test")
-include(":core:database")
-include(":core:datastore")
-include(":core:datastore-test")
-include(":core:designsystem")
-include(":core:domain")
-include(":core:model")
-include(":core:network")
-include(":core:ui")
-include(":core:testing")
-include(":core:analytics")
-include(":core:notifications")
-
-include(":feature:foryou")
-include(":feature:interests")
-include(":feature:bookmarks")
-include(":feature:topic")
-include(":feature:search")
-include(":feature:settings")
-include(":lint")
-include(":sync:work")
-include(":sync:sync-test")
-include(":ui-test-hilt-manifest")

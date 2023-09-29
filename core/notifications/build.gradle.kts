@@ -13,25 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-plugins {
-    id("nowinandroid.android.library")
-    id("nowinandroid.android.library.compose")
-    id("nowinandroid.android.hilt")
-}
-
-android {
-    namespace = "com.google.samples.apps.nowinandroid.core.notifications"
-}
-
 dependencies {
-    implementation(project(":core:common"))
-    implementation(project(":core:model"))
-
-    implementation(libs.kotlinx.coroutines.android)
-    implementation(libs.androidx.browser)
-    implementation(libs.androidx.compose.runtime)
-    implementation(libs.androidx.core.ktx)
-
     implementation(platform(libs.firebase.bom))
-    implementation(libs.firebase.cloud.messaging)
 }

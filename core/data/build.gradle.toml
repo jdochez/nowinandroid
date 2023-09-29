@@ -1,0 +1,29 @@
+plugins = [
+    { id = "nowinandroid.android.library" },
+    { id = "nowinandroid.android.library.jacoco" },
+    { id = "nowinandroid.android.hilt" },
+    { id = "kotlinx-serialization" },
+]
+
+android.namespace = "com.google.samples.apps.nowinandroid.core.data"
+android.testOptions.unitTests.isIncludeAndroidResources = true
+android.testOptions.unitTests.isReturnDefaultValues = true
+
+dependencies.implementation = [
+    { project = ":core:analytics" },
+    { project = ":core:common" },
+    { project = ":core:database" },
+    { project = ":core:datastore" },
+    { project = ":core:model" },
+    { project =":core:network" },
+    { project = ":core:notifications" },
+    { alias = "libs.androidx.core.ktx" },
+    { alias = "libs.kotlinx.coroutines.android" },
+    { alias = "libs.kotlinx.datetime" },
+    { alias = "libs.kotlinx.serialization.json" },
+]
+
+dependencies.testImplementation = [
+    { project = ":core:datastore-test" },
+    { project = ":core:testing" },
+]

@@ -1,0 +1,15 @@
+plugins = [
+    { id = "nowinandroid.android.library" },
+    { id = "nowinandroid.android.hilt" },
+]
+
+android.namespace = "com.google.samples.apps.nowinandroid.core.data.test"
+
+dependencies.api = [
+    { project = ":core:data" },
+]
+
+dependencies.implementation = [
+    { project = ":core:testing" },
+    { project = ":core:common" },
+]

@@ -1,0 +1,121 @@
+plugins = [
+    { id = "nowinandroid.android.application" },
+    { id = "nowinandroid.android.application.compose" },
+    { id = "nowinandroid.android.application.flavors" },
+    { id = "nowinandroid.android.application.jacoco" },
+    { id = "nowinandroid.android.hilt" },
+    { id = "jacoco" },
+    { id = "nowinandroid.android.application.firebase" },
+    { id = "com.google.android.gms.oss-licenses-plugin" },
+]
+
+dependencies.implementation = [
+    { project = ":feature:interests" },
+    { project = ":feature:foryou"},
+    { project = ":feature:bookmarks"},
+    { project = ":feature:topic"},
+    { project = ":feature:search"},
+    { project = ":feature:settings"},
+
+    { project = ":core:common"},
+    { project = ":core:ui"},
+    { project = ":core:designsystem"},
+    { project = ":core:data"},
+    { project = ":core:model"},
+    { project = ":core:analytics"},
+
+    { project = ":sync:work"},
+
+    { alias = "libs.androidx.activity.compose" },
+    { alias = "libs.androidx.appcompat" },
+    { alias = "libs.androidx.core.ktx" },
+    { alias = "libs.androidx.core.splashscreen" },
+    { alias = "libs.androidx.compose.runtime" },
+    { alias = "libs.androidx.lifecycle.runtimeCompose" },
+    { alias = "libs.androidx.compose.runtime.tracing" },
+    { alias = "libs.androidx.compose.material3.windowSizeClass" },
+    { alias = "libs.androidx.hilt.navigation.compose" },
+    { alias = "libs.androidx.navigation.compose" },
+    { alias = "libs.androidx.window.manager" },
+    { alias = "libs.androidx.profileinstaller" },
+    { alias = "libs.kotlinx.coroutines.guava" },
+    { alias = "libs.coil.kt" },
+    { alias = "libs.work.testing" },
+]
+
+dependencies.androidTestImplementation = [
+    { project = ":core:testing" },
+    { project = ":core:datastore-test" },
+    { project = ":core:data-test" },
+    { project = ":core:network" },
+    { alias = "libs.androidx.navigation.testing"},
+    { extension = "kotlin", module = "test"},
+]
+
+dependencies.debugImplementation = [
+    { project = ":ui-test-hilt-manifest" },
+    { alias = "libs.androidx.compose.ui.testManifest"}
+]
+
+dependencies.testImplementation = [
+    { project = ":core:testing" },
+    { project = ":core:datastore-test" },
+    { project = ":core:data-test" },
+    { project = ":core:network" },
+    { alias = "libs.androidx.navigation.testing" },
+    { alias = "libs.accompanist.testharness" },
+    { extension = "kotlin", module = "test"}
+]
+
+dependencies.kaptTest = [
+    { alias = "libs.hilt.compiler" },
+]
+
+android.namespace = "com.google.samples.apps.nowinandroid"
+
+[android.defaultConfig]
+applicationId = "com.google.samples.apps.nowinandroid"
+versionCode = 8
+versionName = "0.1.2" # X.Y.Z; X = Major, Y = minor, Z = Patch level
+# Custom test runner to set up Hilt dependency graph
+testInstrumentationRunner = "com.google.samples.apps.nowinandroid.core.testing.NiaTestRunner"
+
+[android.defaultConfig.vectorDrawables]
+useSupportLibrary = true
+
+[android.buildTypes.debug]
+applicationIdSuffix = ".debug"
+
+
+[android.buildTypes.release]
+isMinifyEnabled = true
+proguardFiles = [ "proguard-rules.pro" ]
+
+[android.buildTypes.release._dispatch_]
+target = "proguardFiles"
+method = "getDefaultProguardFile"
+params = [ "proguard-android-optimize.txt" ]
+
+# To publish on the Play store a private signing key is required, but to allow anyone
+# who clones the code to sign and run the release variant, use the debug signing key.
+# TODO: Abstract the signing configuration to a separate file to avoid hardcoding this.
+#signingConfig = signingConfigs.getByName("debug")
+
+[android.buildTypes.benchmark]
+# Enable all the optimizations from release build through initWith(release).
+initWith = "release"
+matchingFallbacks = [ "release" ]
+# Debug key signing is available to everyone.
+#signingConfig = signingConfigs.getByName("debug")
+# Only use benchmark proguard rules
+proguardFiles = [ "benchmark-rules.pro" ]
+isMinifyEnabled = true
+applicationIdSuffix = ".benchmark"
+
+
+[android.packaging.resources]
+excludes = "/META-INF/{AL2.0,LGPL2.1}"
+
+[android.testOptions.unitTests]
+isIncludeAndroidResources = true
+
