@@ -18,6 +18,10 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        gradlePluginPortal()
+        maven { url = uri("/Users/jedo/src/studio-main/out/repo")}
+        maven { url = uri ("/Users/jedo/src/studio-main/prebuilts/tools/common/m2/repository")}
+        maven { url = uri("/Users/jedo/src/gradle-declarative/out/repo")}
     }
     versionCatalogs {
         create("libs") {

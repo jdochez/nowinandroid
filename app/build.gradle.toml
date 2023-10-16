@@ -72,41 +72,43 @@ dependencies.kaptTest = [
 ]
 
 android.namespace = "com.google.samples.apps.nowinandroid"
+android.compileSdk = 34
+
 
 [android.defaultConfig]
-applicationId = "com.google.samples.apps.nowinandroid"
-versionCode = 8
-versionName = "0.1.2" # X.Y.Z; X = Major, Y = minor, Z = Patch level
-# Custom test runner to set up Hilt dependency graph
-testInstrumentationRunner = "com.google.samples.apps.nowinandroid.core.testing.NiaTestRunner"
+    applicationId = "com.google.samples.apps.nowinandroid"
+    versionCode = 8
+    versionName = "0.1.2" # X.Y.Z; X = Major, Y = minor, Z = Patch level
+    # Custom test runner to set up Hilt dependency graph
+    testInstrumentationRunner = "com.google.samples.apps.nowinandroid.core.testing.NiaTestRunner"
 
-[android.defaultConfig.vectorDrawables]
-useSupportLibrary = true
+    [android.defaultConfig.vectorDrawables]
+        useSupportLibrary = true
 
 [android.buildTypes.debug]
-applicationIdSuffix = ".debug"
+    applicationIdSuffix = ".debug"
 
 
 [android.buildTypes.release]
-isMinifyEnabled = true
-proguardFiles = [ "proguard-rules.pro" ]
+    isMinifyEnabled = true
+    proguardFiles = [ "proguard-rules.pro" ]
+    # Debug key signing is available to everyone.
+    # To publish on the Play store a private signing key is required, but to allow anyone
+    # who clones the code to sign and run the release variant, use the debug signing key.
+    # TODO: Abstract the signing configuration to a separate file to avoid hardcoding this.
+    signingConfig = "debug"
 
 [android.buildTypes.release._dispatch_]
-target = "proguardFiles"
-method = "getDefaultProguardFile"
-params = [ "proguard-android-optimize.txt" ]
-
-# To publish on the Play store a private signing key is required, but to allow anyone
-# who clones the code to sign and run the release variant, use the debug signing key.
-# TODO: Abstract the signing configuration to a separate file to avoid hardcoding this.
-#signingConfig = signingConfigs.getByName("debug")
+    target = "proguardFiles"
+    method = "getDefaultProguardFile"
+    params = [ "proguard-android-optimize.txt" ]
 
 [android.buildTypes.benchmark]
 # Enable all the optimizations from release build through initWith(release).
 initWith = "release"
 matchingFallbacks = [ "release" ]
 # Debug key signing is available to everyone.
-#signingConfig = signingConfigs.getByName("debug")
+signingConfig = "debug"
 # Only use benchmark proguard rules
 proguardFiles = [ "benchmark-rules.pro" ]
 isMinifyEnabled = true

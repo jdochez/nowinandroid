@@ -61,13 +61,15 @@
 //include(":ui-test-hilt-manifest")
 
 pluginManagement {
-    repositories {        maven { url = uri("/Users/jedo/src/studio-main/out/repo")}
+    repositories {
+        gradlePluginPortal()
+        maven { url = uri("/Users/jedo/src/studio-main/out/repo")}
         maven { url = uri ("/Users/jedo/src/studio-main/prebuilts/tools/common/m2/repository")}
         maven { url = uri("/Users/jedo/src/gradle-declarative/out/repo")}
     }
 }
 plugins {
-    id("com.android.experiments.declarative.settings").version("0.0.1")
+    id("com.android.experiments.declarative.settings") version "0.0.1"
 }
 dependencyResolutionManagement {
     RepositoriesMode.PREFER_SETTINGS
